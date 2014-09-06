@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>D7 File Authoring Workflow</title>
+		<meta name="author" content="Matt Mendonca">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/matt.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn-matt.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2>Integrating</h2>
+					<h1>Files</h1>
+					<h3>Into D7 Authoring Workflow</h3>
+					<p>
+            <small><a target="_blank" href="https://github.com/matt-mendonca/">Matt Mendonca</a></small>
+          </p>
+				</section>
+
+				<section>
+					<section>
+	          <h2>Me</h2>
+	          <ul>
+	            <li>
+	              IT Specialist (i.e. Web Developer) at the <a target="_blank" href="http://www.nist.gov/">National Institute of Standards and Technology</a>
+	            </li>
+	            <li>
+	              Previously a Developer at <a target="_blank" href="http://voxglobal.com/">VOX Global (FleishmanHillard)</a> and <a target="_blank" href="http://highrockstudios.com/">High Rock Studios</a>
+	            </li>
+	            <li>
+	              2+ years professional experience with Drupal
+	            </li>
+	          </ul>
+	        </section>
+          <section>
+						<h2>You May Recall</h2>
+						<p>
+							John Venable from NIST presented last month.
+						</p>
+						<div class="fragment">
+							<img src="images/tall.jpg" />
+							<p>
+								<small>(he is exceptionally tall)</small>
+							</p>
+						</div>
+					</section>
+					<section>
+						<h2>True Story...</h2>
+						<p class="fragment">
+							I am taller than John.
+						</p>
+						<img class="fragment" src="images/taller.jpg" />
+						<p class="fragment">
+							<small>(in certain circumstances)</small>
+						</p>
+					</section>
+        </section>
+
+        <section>
+					<h2>Moving Along...</h2>
+				</section>
+
+        <section>
+          <h2>Contents</h2>
+          <ul>
+            <li>
+              <a href="#/4">What are we trying to do</a>
+            </li>
+            <li>
+              <a href="#/5">How we are doing it</a>
+            </li>
+            <li>
+              <a href="#/10">Questions</a>
+            </li>
+            <li>
+              <a href="#/12">Demo</a>
+            </li>
+          </ul>
+        </section>
+
+      	<section>
+	        <h2>What Are We Trying To Do</h2>
+	        <p>In the process of moving from CommonSpot to Drupal. We need to meet or exceed CommonSpot's features.</p>
+	        <ul>
+	        	<li>Fieldable files</li>
+	        	<li>Revisionable files</li>
+	        	<li><strong>Add files from and insert files into the WYSIWYG</strong></li>
+	        </ul>
+	      </section>
+
+      	<section>
+	        <h2>How are we doing it</h2>
+	        <p>Media module and...</p>
+	        <ul>
+	        	<li>First implementation: John let's just use a file field</li>
+	        	<li>Actual first implementation: custom module(s)</li>
+	        		<ul>
+	        			<li>
+	        				<a target="_blank" href="https://github.com/matt-mendonca/ck-browser">https://github.com/matt-mendonca/ck-browser</a>
+	        			</li>
+	        			<li>
+	        				Don't actually use it; you've been warned
+	        			</li>
+	        		</ul>
+	        	<li>Current implementation: Media 7.x-2.0, and others, complemented by custom modules</li>
+	        </ul>
+	      </section>
+
+	      <section>
+	        <h2>Living Dangerously</h2>
+	        <p>You're about to hear stuff like "dev branch" and "patch" - <strong>Media handling in Drupal is in flux</strong>.</p>
+	        <br>
+	        <p>Don't do this unless you are comfortable blowing things up and fixing it.</p>
+	      </section>
+
+	      <section>
+	      	<section>
+		        <h2>Contrib Modules</h2>
+		        <ul>
+		        	<li>Media 7.x-2.0-alpha3</li>
+		        	<li>File Entiy 7.x-2.0-alpha3</li>
+		        	<li>File entity Revisions 7.x-1.x-dev (and patches)</li>
+		        	<li>Rabbit Hole (files) 7.x-2.23 (and patch)</li>
+		        	<li>WYSIWYG 7.x-2.x-dev</li>
+		        </ul>
+		      </section>
+
+		      <section>
+		        <h2>Media</h2>
+		        <h5><a target="_blank" href="https://www.drupal.org/project/media">https://www.drupal.org/project/media</a></h5>
+		        <ul>
+			        <li>Provides a framework for handling files, images, videos, etc</li>
+			        <li>Using 2.0-alpha over 1.x stable because of the file entity module</li>
+			        <li>Dev branch tends to break frequently</li>
+			      </ul>
+		        <blockquote>
+		        	<p>"...New is always better[, Ted]."</p>
+		        </blockquote>
+		      </section>
+
+		      <section>
+		        <h2>File Entity</h2>
+		        <h5><a target="_blank" href="https://www.drupal.org/project/file_entity">https://www.drupal.org/project/file_entity</a></h5>
+		        <ul>
+			        <li>Adds an entity for files. Allows you to field files like you would nodes, users, etc</li>
+			        <li>Using 2.0-alpha; it is the <em>most</em> stable release</li>
+			      </ul>
+		      </section>
+
+		      <section>
+		        <h2>File Entity Revisions</h2>
+		        <h5><a target="_blank" href="https://www.drupal.org/project/file_entity">https://www.drupal.org/project/file_entity</a></h5>
+		        <ul>
+			        <li>Kind of a mess right now, however, it allows file entities to have revisions</li>
+			        <li>
+			        	Using latest dev (<a target="_blank" href="https://www.drupal.org/node/2099949">makes the actual file revisonable</a>) and these patches:
+				        <ul>
+				        	<li>Add a revisions tab to files: <a target="_blank" href="https://www.drupal.org/node/2097975">https://www.drupal.org/node/2097975</a></li>
+				        	<li>Set the default revision status for file types: <a target="_blank" href="https://www.drupal.org/node/2259049">https://www.drupal.org/node/2259049</a></li>
+				        </ul>
+				      </li>
+			      </ul>
+		      </section>
+
+		      <section>
+		        <h2>Rabbit Hole</h2>
+		        <h5><a target="_blank" href="https://www.drupal.org/project/rabbit_hole">https://www.drupal.org/project/rabbit_hole</a></h5>
+		        <ul>
+			        <li>
+			        	Allows us to redirect anonymous users directly to the file from the file entity
+			        	<ul>
+			        		<li>Doesn't tie us to a layout solution (panels could do this too)</li>
+			        	</ul>
+			        </li>
+			        <li>
+			        	Using latest stable and the following patch:
+				        <ul>
+				        	<li>Undefined index on file entity form: <a target="_blank" href="https://www.drupal.org/node/2315761">https://www.drupal.org/node/2315761</a></li>
+				        </ul>
+				      </li>
+			      </ul>
+		      </section>
+
+		      <section>
+		        <h2>WYSIWYG</h2>
+		        <h5><a target="_blank" href="https://www.drupal.org/project/WYSIWYG">https://www.drupal.org/project/WYSIWYG</a></h5>
+		        <ul>
+			        <li>Adds a WYSIWYG</li>
+			        <li>
+			        	<a target="_blank" href="https://www.drupal.org/node/2279749">Not using CK Editor module because it breaks with Media 2</a>
+			        	<ul>
+			        		<li>We are using the CK Editor text editor</li>
+			        	</ul>
+			        </li>
+			        <li>Using latest dev of module since it supports recent versions of CK Editor</li>
+			      </ul>
+		      </section>
+	    	</section>
+
+		    <section>
+					<section>
+					  <h2>Custom Modules</h2>
+					  <ul>
+					  	<li>File Entity Link Display Mode</li>
+					  	<li>Media Browser Override</li>
+					  </ul>
+					</section>
+
+					<section>
+					  <h2>File Entity Link Display Mode</h2>
+					  <h5><a target="_blank" href="https://github.com/matt-mendonca/file_entity_link_display_mode">https://github.com/matt-mendonca/file_entity_link_display_mode</a></h5>
+					  <p>Adds a display mode for file entities that links to the file entity, not the file itself.</p>
+					</section>
+
+					<section>
+					  <h2>Media Browser Override</h2>
+					  <h5><a target="_blank" href="https://github.com/matt-mendonca/media_browser_override">https://github.com/matt-mendonca/media_browser_override</a></h5>
+					  <p>Overrides (as cleanly as possible) some of Media 2's media browser WYSIWYG plugin functionality.</p>
+					  <ul>
+					  	<li>Default to WYSIWYG display format</li>
+					  	<li>Skip view mode form in the media browser</li>
+					  	<li>Alter media browser plugin js</li>
+					  </ul>
+					</section>
+		    </section>
+
+		    <section>
+				  <h2>How everything fits together</h2>
+				  <ul>
+				  	<li>
+				  		Media provides the ground work
+				  		<ul>
+				  			<li>Media browser WYSIWYG plugin (part of Media 2) allows us to add and insert media from a wyswiwyg</li>
+				  		</ul>
+				  	</li>
+				  	<li>File Entity and File Entity Revisions lets us interact with files like nodes</li>
+				  	<li>Rabbit Hole allows us to have a link to the file that will always (within reason) be correct</li>
+				  	<li>Custom modules fill in the gaps</li>
+				  </ul>
+				</section>
+	    	
+	    	<section>
+				  <h1>Questions?</h1>
+				</section>
+
+				<section>
+          <h6>&lt;shameless-plug&gt;</h6>
+            <h1><a target="_blank" href="https://github.com/matt-mendonca/podium-js">podium js</a></h1>
+          <h6>&lt;/shameless-plug&gt;</h6>
+        </section>
+
+				<section>
+				  <h1>Demo</h1>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+	</body>
+</html>

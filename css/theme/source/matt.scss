@@ -1,0 +1,120 @@
+/**
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
+ *
+ * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+//@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700|Raleway:400,300,100,700,200);
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(fonts/open-sans-300.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(fonts/open-sans-400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Open Sans Light Italic'), local('OpenSansLight-Italic'), url(fonts/open-sans-300i.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(fonts/open-sans-400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Raleway Thin'), local('Raleway-Thin'), url(fonts/raleway-100.woff) format('woff');
+}
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Open Sans', 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;
+//$mainFont: 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;
+$mainColor: #444;
+$mainFontSize: 42px;
+$headingFont: 'Raleway', 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;
+//$headingFont: 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;
+$headingColor: #444;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: #f9f9f9;
+$linkColor: #2AB5D8;
+$linkColorHover: darken( $linkColor, 20% );
+$selectionBackgroundColor: #136;
+
+// Background generator
+@mixin bodyBackground() {
+  @include vertical-gradient( #ffffff, #e9e9e9 );
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.reveal h1, 
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-weight: 100;
+  text-shadow: none;
+}
+
+html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal iframe, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal p, .reveal blockquote, .reveal pre, .reveal a, .reveal abbr, .reveal acronym, .reveal address, .reveal big, .reveal cite, .reveal code, .reveal del, .reveal dfn, .reveal em, .reveal img, .reveal ins, .reveal kbd, .reveal q, .reveal s, .reveal samp, .reveal small, .reveal strike, .reveal strong, .reveal sub, .reveal sup, .reveal tt, .reveal var, .reveal b, .reveal u, .reveal i, .reveal center, .reveal dl, .reveal dt, .reveal dd, .reveal ol, .reveal ul, .reveal li, .reveal fieldset, .reveal form, .reveal label, .reveal legend, .reveal table, .reveal caption, .reveal tbody, .reveal tfoot, .reveal thead, .reveal tr, .reveal th, .reveal td, .reveal article, .reveal aside, .reveal canvas, .reveal details, .reveal embed, .reveal figure, .reveal figcaption, .reveal footer, .reveal header, .reveal hgroup, .reveal menu, .reveal nav, .reveal output, .reveal ruby, .reveal section, .reveal summary, .reveal time, .reveal mark, .reveal audio, video,
+.reveal p {
+  font-weight: 300;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: 400;
+}
+
+.reveal li {
+  margin-bottom: 1em;
+}
+
+.reveal li ul {
+  list-style-type: circle;
+  font-size: 0.8em;
+}
+
+/*
+.reveal h1 { font-size: 4.25em; }
+.reveal h2 { font-size: 3.0em; }
+.reveal h3 { font-size: 1.5em; }
+.reveal h4 { font-size: 1.25em; }
+
+.reveal h1, 
+.reveal h2 {
+    font-weight: 100;
+}
+
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6
+.reveal p {
+  font-weight: 300;
+}
+*/
+
